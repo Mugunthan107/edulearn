@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses - EduLearn</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav style="background-color: rgb(62, 62, 149);font-size: 1.75rem;font-weight: bold;color: white;">
+        <center>
+        <ul>
+            <li>Edulearn!</li>
+        </ul>
+    </center>
+    </nav>
+    <section id="courses" >
+        <h2>Our Courses</h2>
+        <div class="course-container" id="courseList"></div>
+        <center><a href="index.html"><p style="padding-top: 20px;">back</p></a></center>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const courses = [
+                { name: "Web Development", duration: "6 weeks", price: "Free" },
+                { name: "Data Science", duration: "2 months", price: "Paid" },
+                { name: "Japanese", duration: "10 weeks", price: "Paid" },
+                { name: "Basic Python", duration: "1 month", price: "Free" }
+            ];
+
+            const courseList = document.getElementById('courseList');
+            courses.forEach(course => {
+                const courseCard = document.createElement('div');
+                courseCard.classList.add('course-card');
+
+                courseCard.innerHTML = `
+                    <h3>${course.name}</h3>
+                    <p>Duration: ${course.duration}</p>
+                    <span class="tag">${course.price}</span>
+                `;
+
+                courseList.appendChild(courseCard);
+            });
+        });
+    </script>
+</body>
+</html>
